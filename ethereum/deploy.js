@@ -18,7 +18,7 @@ const deploy = async () => {
 
         // Deploy contract to Goerli network
         const contract = await new web3.eth.Contract(JSON.parse(compiledRecord.interface))
-            .deploy({ data: '0x' + compiledRecord.bytecode }) // Add '0x' prefix to bytecode
+            .deploy({ data: compiledRecord.bytecode })
             .send({ gas: '5000000', from: accounts[0] }); // Adjust gas limit
 
         // Display the address of the deployed contract
